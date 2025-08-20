@@ -52,7 +52,12 @@
 			<version>1.2.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-	</dependencies>
+	        <dependency>
+            <groupId>com.britishgasenergy</groupId>
+            <artifactId>bg-otel-library</artifactId>
+            <classifier>muleplugin</classifier>
+        </dependency>
+    </dependencies>
 
 	<repositories>
 		<repository>
