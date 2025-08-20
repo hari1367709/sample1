@@ -6,6 +6,8 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/cloudhub http://www.mulesoft.org/schema/mule/cloudhub/current/mule-cloudhub.xsd">
+    <import doc:name="Import" file="otel-common-flows.xml" />
+    <import doc:name="Import" file="otel-global-config.xml" />
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7a5e8398-38ce-4155-bb2d-afefc9b149d0" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
