@@ -10,12 +10,14 @@ http://www.mulesoft.org/schema/mule/cloudhub http://www.mulesoft.org/schema/mule
     <import doc:name="Import" file="otel-global-config.xml" />
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7a5e8398-38ce-4155-bb2d-afefc9b149d0" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
+        <flow-ref name="tracing-add-mdc-trace-context-sub-flow" />
 	</http:listener-config>
 	<cloudhub:config name="CloudHub_Config" doc:name="CloudHub Config" doc:id="d24a98ed-ecf1-44ac-9816-f02aea5e2a07" >
 		<cloudhub:connection username="dummy" password="dummy" />
 	</cloudhub:config>
 	<flow name="sample-app-1Flow" doc:id="eb255883-84b6-4823-bb9c-df32dc27d238" >
 		<http:listener doc:name="Listener" doc:id="4e04e77a-55b8-4ecf-9830-00d291140006" config-ref="HTTP_Listener_config" path="/test"/>
+        <flow-ref name="tracing-add-mdc-trace-context-sub-flow" />
 		<ee:transform doc:name="Transform Message" doc:id="1eefe996-7636-493d-9600-f28244d32679" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
